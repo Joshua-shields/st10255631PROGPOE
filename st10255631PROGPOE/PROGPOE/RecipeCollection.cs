@@ -95,7 +95,7 @@ namespace RecipeManager
                     case 5: ingredient.FoodGroup = "Vegetables"; break;
                     case 6: ingredient.FoodGroup = "Dairy"; break;
                     case 7: ingredient.FoodGroup = "Sweets"; break;
-                    default: ingredient.FoodGroup = "Other"; break; // Handle invalid choices
+                    default: ingredient.FoodGroup = "Other"; break; // Handles invalid choices
                 }
 
                 newRecipe.Ingredients.Add(ingredient);
@@ -366,6 +366,5 @@ namespace RecipeManager
 //--------------------------------------------------------------------------------------------------------------//
 
 
-//--------------------------------------------------------------------------------------------------------------//
 
 //**************************************************************END OF FILE**************************************************************//

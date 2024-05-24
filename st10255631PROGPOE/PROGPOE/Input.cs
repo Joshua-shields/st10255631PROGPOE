@@ -34,11 +34,12 @@ namespace RecipeManager
         }
         //--------------------------------------------------------------------------------------------------------------//
 
-        /// <summary>
-        /// Gets a string input from the user.
-        /// </summary>
-        /// <param name="message">The prompt message to display to the user.</param>
-        /// <returns>The string value entered by the user.</returns>
+        public static string GetStringInput(string message)
+        {
+            Console.Write(message);
+            return Console.ReadLine();
+        }
+
         public static bool GetConfirmation(string action)
         {
             Console.Write($"Are you sure you want to {action}? (y/n) ");
@@ -54,12 +55,9 @@ namespace RecipeManager
             return input == "y";
         }
 
-        internal static string GetStringInput(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
+
 
 
 //**************************************************************END OF FILE**************************************************************//

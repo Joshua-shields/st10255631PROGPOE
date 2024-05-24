@@ -15,3 +15,4 @@ namespace RecipeManager
         public string FoodGroup { get; set; }    // Food group the ingredient belongs to
     }
 }
+//**************************************************************END OF FILE**************************************************************//
