@@ -25,7 +25,7 @@ namespace RecipeManager
         public event CalorieLimitExceededHandler CalorieLimitExceeded; // Event to notify about exceeding calorie limit
 
         /// <summary>
-        /// Constructor for the RecipeCollection class. Initializes the Recipes list.
+        /// Constructor for the RecipeCollection class. Initialises the Recipes list.
         /// </summary>
         public RecipeCollection()
         {
@@ -75,13 +75,13 @@ namespace RecipeManager
 
                 // Food Group Selection
                 Console.WriteLine("Select Food Group:");
-                Console.WriteLine("1. Protein");
-                Console.WriteLine("2. Carbohydrates");
-                Console.WriteLine("3. Fats");
-                Console.WriteLine("4. Fruits");
-                Console.WriteLine("5. Vegetables");
-                Console.WriteLine("6. Dairy");
-                Console.WriteLine("7. Sweets");
+                Console.WriteLine("1. Protein, such as steak, poultry, or fish");
+                Console.WriteLine("2. Carbohydrates, such as potatoes, bread, or flour");
+                Console.WriteLine("3. Fats, such as olive oil, avocado, or butter");
+                Console.WriteLine("4. Fruits, such as apples, oranges, or grapes");
+                Console.WriteLine("5. Vegetables, such as broccoli, kale, or cabbage");
+                Console.WriteLine("6. Dairy, such as milk, cream, or yoghurt");
+                Console.WriteLine("7. Sweets, such as chocolate, sugar, or icing");
 
 
                 int foodGroupChoice = Input.GetIntegerInput("Enter your choice: ");
@@ -182,9 +182,6 @@ namespace RecipeManager
 
         //--------------------------------------------------------------------------------------------------------------//
 
-        /// <summary>
-        /// Scales the ingredients of a selected recipe by a user-specified factor.
-        /// </summary>
         public void ScaleRecipe()
         {
             if (Recipes.Count == 0)
@@ -201,6 +198,13 @@ namespace RecipeManager
             {
                 double scaleFactor = GetScaleFactor();
                 ScaleIngredients(Recipes[choice], scaleFactor);
+
+                // Ask if the user wants to reset to original values
+                if (Input.GetConfirmation("reset the quantities to the original values"))
+                {
+                    ResetIngredients(Recipes[choice]); // this call the reset method
+                    Console.WriteLine("Quantities reset to original values.");
+                }
             }
             else
             {
@@ -236,6 +240,20 @@ namespace RecipeManager
             }
 
             Console.WriteLine($"Recipe '{recipe.Name}' scaled by a factor of {factor}.");
+        }
+
+        //--------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Resets the quantities of ingredients in a recipe to their original values.
+        /// </summary>
+        /// <param name="recipe">The Recipe object to reset.</param>
+        private void ResetIngredients(Recipe recipe)
+        {
+            foreach (Ingredient ingredient in recipe.Ingredients)
+            {
+                ingredient.Quantity = ingredient.OriginalQuantity;
+            }
         }
 
         //--------------------------------------------------------------------------------------------------------------//

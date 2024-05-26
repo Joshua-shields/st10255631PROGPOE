@@ -13,6 +13,7 @@ namespace RecipeManager
         public string Unit { get; set; }          // Unit of measurement for the ingredient
         public int Calories { get; set; }        // Calories in the ingredient
         public string FoodGroup { get; set; }    // Food group the ingredient belongs to
+        public string OriginalQuantity { get; internal set; }
     }
 }
 //**************************************************************END OF FILE**************************************************************//
