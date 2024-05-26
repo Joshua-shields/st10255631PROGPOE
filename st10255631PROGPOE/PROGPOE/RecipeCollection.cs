@@ -133,7 +133,7 @@ namespace RecipeManager
             }
 
             Console.WriteLine("\nAvailable Recipes:");
-            var sortedRecipes = Recipes.OrderBy(r => r.Name).ToList(); // this sorts the recipes alphabetically
+            var sortedRecipes = Recipes.OrderBy(r => r.Name).ToList(); // this sorts the recipes alphabetically using a lambda expression
 
             for (int i = 0; i < sortedRecipes.Count; i++)
             {
@@ -148,7 +148,7 @@ namespace RecipeManager
             }
             else
             {
-                Console.WriteLine("Invalid choice.");
+                Console.WriteLine("Invalid choice."); // error handling
             }
         }
 
@@ -167,7 +167,7 @@ namespace RecipeManager
             Console.ResetColor();
             foreach (Ingredient ingredient in recipe.Ingredients)
             {
-                Console.WriteLine($"- {ingredient.Quantity} {ingredient.Unit} {ingredient.Name} ({ingredient.Calories} calories, {ingredient.FoodGroup})"); // displaus quantiy, the unit, name and calories of the recipe
+                Console.WriteLine($"- {ingredient.Quantity} {ingredient.Unit} {ingredient.Name} ({ingredient.Calories} calories, {ingredient.FoodGroup})"); // displays quantity, the unit, name and calories of the recipe
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -370,9 +370,13 @@ namespace RecipeManager
         /// Raises the CalorieLimitExceeded event if it has subscribers.
         /// </summary>
         /// <param name="recipe">The recipe that exceeded the calorie limit.</param>
+        
+        /// The method is declared as protected virtual for the following reasons
+        /// protected access modifier it allows this method to be accessed from derived classes 
+        /// virtual allows derived classes to override this method's behavior.
         protected virtual void OnCalorieLimitExceeded(Recipe recipe)
         {
-            CalorieLimitExceeded?.Invoke(recipe);
+            CalorieLimitExceeded.Invoke(recipe); // Invokes CalorieLimitExceeded event.
         }
 
         /// <summary>
