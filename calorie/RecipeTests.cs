@@ -11,7 +11,6 @@ using System;
 //            Troelsen, A. and Japikse, P. (2022). Pro C# 10 with .NET 6. Apress.
 //            Bro Code (2022). C# Full Course for free 🎮. [online] Available at: https://www.youtube.com/watch?v=wxznTygnRfQ&list=WL&index=1.
 
-
 namespace RecipeManagerTests
 {
     [TestClass]
@@ -20,7 +19,7 @@ namespace RecipeManagerTests
         [TestMethod]
         public void CalculateTotalCalories_EmptyRecipe_ReturnsZero()
         {
-            Recipe recipe = new Recipe();
+            Recipe recipe = new Recipe(); // Recipe with a constructor to initialize Ingredients
 
             int totalCalories = recipe.CalculateTotalCalories();
 
@@ -45,9 +44,9 @@ namespace RecipeManagerTests
             recipe.Ingredients.Add(new Ingredient { Calories = 50 });
             recipe.Ingredients.Add(new Ingredient { Calories = 75 });
 
-          int totalCalories = recipe.CalculateTotalCalories();
+            int totalCalories = recipe.CalculateTotalCalories();
 
-          Assert.AreEqual(125, totalCalories);
+            Assert.AreEqual(125, totalCalories);
         }
 
         [TestMethod]

@@ -34,12 +34,18 @@ namespace RecipeManager
         }
         //--------------------------------------------------------------------------------------------------------------//
 
+        //
         public static string GetStringInput(string message)
         {
             Console.Write(message);
             return Console.ReadLine();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
         public static bool GetConfirmation(string action)
         {
             Console.Write($"Are you sure you want to {action}? (y/n) ");

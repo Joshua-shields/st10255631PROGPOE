@@ -30,7 +30,7 @@ namespace RecipeManager
         public RecipeCollection()
         {
             Recipes = new List<Recipe>();
-            CalorieLimitExceeded += HandleCalorieLimitExceeded; // Subscribe to the event
+            CalorieLimitExceeded += HandleCalorieLimitExceeded; // Subscribes to the event
         }
 
         //--------------------------------------------------------------------------------------------------------------//
@@ -41,9 +41,9 @@ namespace RecipeManager
         /// </summary>
         public void GreetUser()
         {
-            Console.ForegroundColor = ConsoleColor.Green; // Change the text color to green
+            Console.ForegroundColor = ConsoleColor.Green; // Changes the text color to green
             Console.WriteLine("Welcome to the Recipe Application!");
-            Console.ResetColor(); // Reset the text color to the default
+            Console.ResetColor(); // this then resets the text color to the default being white
 
             Console.Write("What is your name? ");
             string name = Console.ReadLine();
@@ -74,6 +74,7 @@ namespace RecipeManager
                 ingredient.Calories = Input.GetIntegerInput("Calories: ");
 
                 // Food Group Selection
+                // the user is given a list of possible examples 
                 Console.WriteLine("Select Food Group:");
                 Console.WriteLine("1. Protein, such as steak, poultry, or fish");
                 Console.WriteLine("2. Carbohydrates, such as potatoes, bread, or flour");
@@ -83,7 +84,7 @@ namespace RecipeManager
                 Console.WriteLine("6. Dairy, such as milk, cream, or yoghurt");
                 Console.WriteLine("7. Sweets, such as chocolate, sugar, or icing");
 
-
+                // Get the input
                 int foodGroupChoice = Input.GetIntegerInput("Enter your choice: ");
 
                 switch (foodGroupChoice)
@@ -95,12 +96,13 @@ namespace RecipeManager
                     case 5: ingredient.FoodGroup = "Vegetables"; break;
                     case 6: ingredient.FoodGroup = "Dairy"; break;
                     case 7: ingredient.FoodGroup = "Sweets"; break;
-                    default: ingredient.FoodGroup = "Other"; break; // Handles invalid choices
+                    default: ingredient.FoodGroup = "Other"; break; // this handles invalid choices
                 }
 
-                newRecipe.Ingredients.Add(ingredient);
+                newRecipe.Ingredients.Add(ingredient); // add the selection to ingredients 
             }
 
+            // as the user to enter steps and number of 
             int stepCount = Input.GetIntegerInput("Please Enter the number of steps: ");
             Console.WriteLine("\nEnter the steps for the recipe:");
             for (int i = 0; i < stepCount; i++)
@@ -131,7 +133,7 @@ namespace RecipeManager
             }
 
             Console.WriteLine("\nAvailable Recipes:");
-            var sortedRecipes = Recipes.OrderBy(r => r.Name).ToList(); // Sort recipes alphabetically
+            var sortedRecipes = Recipes.OrderBy(r => r.Name).ToList(); // this sorts the recipes alphabetically
 
             for (int i = 0; i < sortedRecipes.Count; i++)
             {
@@ -158,14 +160,14 @@ namespace RecipeManager
         /// <param name="recipe">The Recipe object to display.</param>
         private void DisplayRecipeDetails(Recipe recipe)
         {
-            Console.WriteLine($"\n{recipe.Name}");
+            Console.WriteLine($"\n{recipe.Name}"); // prints out the recipe name
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Yellow; // changes colour
             Console.WriteLine("\nIngredients:");
             Console.ResetColor();
             foreach (Ingredient ingredient in recipe.Ingredients)
             {
-                Console.WriteLine($"- {ingredient.Quantity} {ingredient.Unit} {ingredient.Name} ({ingredient.Calories} calories, {ingredient.FoodGroup})");
+                Console.WriteLine($"- {ingredient.Quantity} {ingredient.Unit} {ingredient.Name} ({ingredient.Calories} calories, {ingredient.FoodGroup})"); // displaus quantiy, the unit, name and calories of the recipe
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -176,12 +178,17 @@ namespace RecipeManager
                 Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
             }
 
-            int totalCalories = recipe.CalculateTotalCalories();
+            int totalCalories = recipe.CalculateTotalCalories(); // 
             Console.WriteLine($"\nTotal Calories: {totalCalories}");
         }
 
         //--------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// check is their are any recipes to scale if not then dispalys no recipe to scale.
+        /// if their is it ask the suer how they would like to scale and after they scale if they want to reset it.
+        /// else invalid choice // errorr handling
+        /// </summary>
         public void ScaleRecipe()
         {
             if (Recipes.Count == 0)
@@ -208,7 +215,7 @@ namespace RecipeManager
             }
             else
             {
-                Console.WriteLine("Invalid choice.");
+                Console.WriteLine("Invalid choice."); // error handling
             }
         }
 
@@ -239,7 +246,7 @@ namespace RecipeManager
                 }
             }
 
-            Console.WriteLine($"Recipe '{recipe.Name}' scaled by a factor of {factor}.");
+            Console.WriteLine($"Recipe '{recipe.Name}' scaled by a factor of {factor}."); // prints out the recipe name and the factor scaled
         }
 
         //--------------------------------------------------------------------------------------------------------------//
