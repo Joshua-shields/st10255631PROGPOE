@@ -34,23 +34,25 @@ namespace RecipeManager
         }
         //--------------------------------------------------------------------------------------------------------------//
 
+        //Prompts user for input and returns the entered string
         //
         public static string GetStringInput(string message)
         {
             Console.Write(message);
-            return Console.ReadLine();
+            return Console.ReadLine(); // Get and return user input
         }
 
         /// <summary>
-        /// 
+        /// Prompts the user to confirm an action and returns a boolean value based on the user's input.
         /// </summary>
-        /// <param name="action"></param>
-        /// <returns></returns>
+        /// <param name="action">A string describing the action to be confirmed.</param>
+        /// <returns>True if the user confirms the action, false otherwise.</returns>
         public static bool GetConfirmation(string action)
         {
             Console.Write($"Are you sure you want to {action}? (y/n) ");
             string input = Console.ReadLine().ToLower();
 
+            // Keep prompting until a valid input is received
             while (input != "y" && input != "n")
             {
                 Console.WriteLine("Invalid input. Please enter 'y' or 'n'.");
