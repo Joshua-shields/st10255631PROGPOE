@@ -270,7 +270,7 @@ namespace RecipeManager
         /// </summary>
         public void ClearRecipes()
         {
-            if (Recipes.Count == 0)
+            if (Recipes.Count == 0) // checks if their is a recipe to be scaled
             {
                 Console.WriteLine("No recipes to clear.");
                 return;
@@ -287,6 +287,7 @@ namespace RecipeManager
 
         /// <summary>
         /// Displays a numbered list of all recipes in the collection.
+        /// This is also displayed in alphabetical order.
         /// </summary>
         private void DisplayRecipeListWithNumbers()
         {
@@ -344,22 +345,22 @@ namespace RecipeManager
                 switch (choice)
                 {
                     case 1:
-                        AddRecipe();
+                        AddRecipe(); // allows the user to add a new recipe
                         break;
                     case 2:
-                        DisplayRecipes();
+                        DisplayRecipes(); //displays all the current recipes made
                         break;
                     case 3:
-                        ScaleRecipe();
+                        ScaleRecipe(); // allows the scaleing of the recipe
                         break;
                     case 4:
-                        ClearRecipes();
+                        ClearRecipes(); // clears the recipes 
                         break;
                     case 5:
-                        Console.WriteLine("Exiting Recipe Manager. Goodbye!");
+                        Console.WriteLine("Exiting Recipe Manager. Goodbye!"); // exists with a message 
                         break;
                     default:
-                        Console.WriteLine("Invalid choice!");
+                        Console.WriteLine("Invalid choice!"); // error handling
                         break;
                 }
             } while (choice != 5);
@@ -381,7 +382,7 @@ namespace RecipeManager
         static void HandleCalorieLimitExceeded(Recipe recipe)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"\nWarning: Recipe '{recipe.Name}' exceeds 300 calories!");
+            Console.WriteLine($"\nWarning: Recipe '{recipe.Name}' exceeds 300 calories!"); // warning message
             Console.WriteLine($"The recipe contains {recipe.CalculateTotalCalories()} calories.");
             Console.ResetColor();
         }

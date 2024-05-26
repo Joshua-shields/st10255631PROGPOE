@@ -19,7 +19,7 @@ namespace RecipeManagerTests
         [TestMethod]
         public void CalculateTotalCalories_EmptyRecipe_ReturnsZero()
         {
-            Recipe recipe = new Recipe(); // Recipe with a constructor to initialize Ingredients
+            Recipe recipe = new Recipe(); // Recipe with a constructor to initialise Ingredients
 
             int totalCalories = recipe.CalculateTotalCalories();
 

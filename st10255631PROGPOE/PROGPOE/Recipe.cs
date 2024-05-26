@@ -31,7 +31,8 @@ namespace RecipeManager
         //--------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// initialises two empty lists.
+        /// one for Ingredients and another for Steps when a new instance of the Recipe class is created.
         /// </summary>
         public Recipe()
         {
