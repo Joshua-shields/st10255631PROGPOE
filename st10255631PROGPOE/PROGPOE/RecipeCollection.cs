@@ -69,7 +69,7 @@ namespace RecipeManager
                 Ingredient ingredient = new Ingredient();
                 Console.WriteLine($"\nEnter ingredient {i + 1} details:");
                 ingredient.Name = Input.GetStringInput("Name: ");
-                ingredient.Unit = Input.GetStringInput("Unit (tsp, tbsp, cup, oz, lb, g, kg, ml, l, quart, gallon, pinch, unit): ");
+                ingredient.Unit = Input.GetStringInput("Unit (tsp, tbsp, cup, oz, lb, g, kg, ml, l, quart, gallon, pinch, unit): "); // list of measurments
                 ingredient.Quantity = Input.GetStringInput("Quantity: ");
                 ingredient.Calories = Input.GetIntegerInput("Calories: ");
 
@@ -162,7 +162,7 @@ namespace RecipeManager
         {
             Console.WriteLine($"\n{recipe.Name}"); // prints out the recipe name
 
-            Console.ForegroundColor = ConsoleColor.Yellow; // changes colour
+            Console.ForegroundColor = ConsoleColor.Yellow; // changes text colour
             Console.WriteLine("\nIngredients:");
             Console.ResetColor();
             foreach (Ingredient ingredient in recipe.Ingredients)
@@ -209,7 +209,7 @@ namespace RecipeManager
                 // Ask if the user wants to reset to original values
                 if (Input.GetConfirmation("reset the quantities to the original values"))
                 {
-                    ResetIngredients(Recipes[choice]); // this call the reset method
+                    ResetIngredients(Recipes[choice]); // this calls the reset method
                     Console.WriteLine("Quantities reset to original values.");
                 }
             }
@@ -348,7 +348,7 @@ namespace RecipeManager
                         AddRecipe(); // allows the user to add a new recipe
                         break;
                     case 2:
-                        DisplayRecipes(); //displays all the current recipes made
+                        DisplayRecipes(); // displays all the current recipes made
                         break;
                     case 3:
                         ScaleRecipe(); // allows the scaleing of the recipe
@@ -386,7 +386,7 @@ namespace RecipeManager
         static void HandleCalorieLimitExceeded(Recipe recipe)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"\nWarning: Recipe '{recipe.Name}' exceeds 300 calories!"); // warning message
+            Console.WriteLine($"\nWarning: Recipe '{recipe.Name}' exceeds 300 calories!"); // warning message if the calories are more than 300
             Console.WriteLine($"The recipe contains {recipe.CalculateTotalCalories()} calories.");
             Console.ResetColor();
         }
