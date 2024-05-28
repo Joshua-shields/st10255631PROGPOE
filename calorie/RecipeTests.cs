@@ -63,5 +63,15 @@ namespace RecipeManagerTests
 
             Assert.AreEqual(150, totalCalories);
         }
+        [TestMethod]
+        public void CalculateTotalCalories_NegativeCalories_ThrowsArgumentException()
+        {
+            // Arrange
+            Recipe recipe = new Recipe();
+            recipe.Ingredients.Add(new Ingredient { Calories = -50 });
+
+            // Act and Assert
+            Assert.ThrowsException<ArgumentException>(() => recipe.CalculateTotalCalories());
+        }
     }
 }
