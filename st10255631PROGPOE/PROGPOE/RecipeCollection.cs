@@ -16,6 +16,8 @@ using static System.Collections.Specialized.BitVector32;
 //            Troelsen, A. and Japikse, P. (2022). Pro C# 10 with .NET 6. Apress.
 //            Bro Code (2022). C# Full Course for free 🎮. [online] Available at: https://www.youtube.com/watch?v=wxznTygnRfQ&list=WL&index=1.
 
+// GITHUB LINK: https://github.com/Joshua-shields/st10255631PROGPOE.git
+
 namespace RecipeManager
 {
     public delegate void CalorieLimitExceededHandler(Recipe recipe);
