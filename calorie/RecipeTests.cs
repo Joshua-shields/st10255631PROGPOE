@@ -7,9 +7,10 @@ using System;
 // Student number: ST10255631
 // Group: Group 2
 
-//References: GeeksforGeeks. (2020). C# Tutorial. [online] Available at: https://www.geeksforgeeks.org/c-sharp-tutorial/. [Accessed 20 March]
-//            Troelsen, A. and Japikse, P. (2022). Pro C# 10 with .NET 6. Apress.
-//            Bro Code (2022). C# Full Course for free 🎮. [online] Available at: https://www.youtube.com/watch?v=wxznTygnRfQ&list=WL&index=1.
+//References: 
+// GeeksforGeeks. (2020). C# Tutorial. [online] Available at: https://www.geeksforgeeks.org/c-sharp-tutorial/. [Accessed 20 March]
+// Troelsen, A. and Japikse, P. (2022). Pro C# 10 with .NET 6. Apress.
+// Bro Code (2022). C# Full Course for free 🎮. [online] Available at: https://www.youtube.com/watch?v=wxznTygnRfQ&list=WL&index=1.
 
 // GITHUB LINK: https://github.com/Joshua-shields/st10255631PROGPOE.git
 
@@ -21,7 +22,7 @@ namespace RecipeManagerTests
         [TestMethod]
         public void CalculateTotalCalories_EmptyRecipe_ReturnsZero()
         {
-            Recipe recipe = new Recipe(); // Recipe with a constructor to initialise Ingredients
+            Recipe recipe = new Recipe();
 
             int totalCalories = recipe.CalculateTotalCalories();
 
@@ -32,7 +33,7 @@ namespace RecipeManagerTests
         public void CalculateTotalCalories_SingleIngredient_ReturnsCorrectCalories()
         {
             Recipe recipe = new Recipe();
-            recipe.Ingredients.Add(new Ingredient { Calories = 100 }); // Only the calories matter for this test
+            recipe.Ingredients.Add(new Ingredient { Calories = 100 });
 
             int totalCalories = recipe.CalculateTotalCalories();
 
