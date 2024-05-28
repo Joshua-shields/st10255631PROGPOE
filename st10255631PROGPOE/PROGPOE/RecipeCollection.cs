@@ -102,7 +102,7 @@ namespace RecipeManager
                 newRecipe.Ingredients.Add(ingredient); // add the selection to ingredients 
             }
 
-            // as the user to enter steps and number of 
+            // asks the user to enter steps and number of steps 
             int stepCount = Input.GetIntegerInput("Please Enter the number of steps: ");
             Console.WriteLine("\nEnter the steps for the recipe:");
             for (int i = 0; i < stepCount; i++)
@@ -178,7 +178,7 @@ namespace RecipeManager
                 Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
             }
 
-            int totalCalories = recipe.CalculateTotalCalories(); // 
+            int totalCalories = recipe.CalculateTotalCalories(); 
             Console.WriteLine($"\nTotal Calories: {totalCalories}");
         }
 
