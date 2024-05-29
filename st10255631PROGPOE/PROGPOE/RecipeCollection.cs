@@ -188,7 +188,7 @@ namespace RecipeManager
 
         /// <summary>
         /// check is their are any recipes to scale if not then dispalys no recipe to scale.
-        /// if their is it ask the suer how they would like to scale and after they scale if they want to reset it.
+        /// if their is it ask the user how they would like to scale and after they scale if they want to reset it.
         /// else invalid choice // errorr handling
         /// </summary>
         public void ScaleRecipe()

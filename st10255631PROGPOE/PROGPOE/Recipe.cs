@@ -40,7 +40,7 @@ namespace RecipeManager
             Ingredients = new List<Ingredient>();
             Steps = new List<string>();
 
-            //--------------------------------------------------------------------------------------------------------------//
+        //--------------------------------------------------------------------------------------------------------------//
         }
         /// <summary>
         /// Calculates the total calories of the recipe.
@@ -54,6 +54,8 @@ namespace RecipeManager
                 totalCalories += ingredient.Calories;
             }
             return totalCalories;
+        //--------------------------------------------------------------------------------------------------------------//
+
         }
     }
 }

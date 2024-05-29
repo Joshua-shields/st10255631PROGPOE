@@ -29,6 +29,8 @@ namespace RecipeManager
         {
             RecipeCollection manager = new RecipeCollection();
             manager.Menu();
+        //--------------------------------------------------------------------------------------------------------------//
+
         }
     }
 }

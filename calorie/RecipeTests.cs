@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RecipeManager;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 //**************************************************************END OF IMPORTS*****************************************************//
 // Name: Joshua Shields
 // Student number: ST10255631
@@ -20,6 +21,7 @@ namespace RecipeManagerTests
     public class RecipeTests
     {
         [TestMethod]
+        //Test method to ensure CalculateTotalCalories returns 0 when the recipe has no ingredients
         public void CalculateTotalCalories_EmptyRecipe_ReturnsZero()
         {
             Recipe recipe = new Recipe();
@@ -28,8 +30,11 @@ namespace RecipeManagerTests
 
             Assert.AreEqual(0, totalCalories);
         }
+        //--------------------------------------------------------------------------------------------------------------//
+
 
         [TestMethod]
+        //Test method to verify CalculateTotalCalories returns the correct calorie count for a recipe with a single ingredient
         public void CalculateTotalCalories_SingleIngredient_ReturnsCorrectCalories()
         {
             Recipe recipe = new Recipe();
@@ -39,8 +44,11 @@ namespace RecipeManagerTests
 
             Assert.AreEqual(100, totalCalories);
         }
+        //--------------------------------------------------------------------------------------------------------------//
+
 
         [TestMethod]
+        //Test method to validate CalculateTotalCalories correctly sums the calories for a recipe with multiple ingredients
         public void CalculateTotalCalories_MultipleIngredients_ReturnsSumOfCalories()
         {
             Recipe recipe = new Recipe();
@@ -51,8 +59,11 @@ namespace RecipeManagerTests
 
             Assert.AreEqual(125, totalCalories);
         }
+        //--------------------------------------------------------------------------------------------------------------//
+
 
         [TestMethod]
+        //Test method to confirm CalculateTotalCalories ignores ingredients with 0 calories
         public void CalculateTotalCalories_IngredientWithZeroCalories_IgnoresIngredient()
         {
             Recipe recipe = new Recipe();
@@ -62,16 +73,21 @@ namespace RecipeManagerTests
             int totalCalories = recipe.CalculateTotalCalories();
 
             Assert.AreEqual(150, totalCalories);
+            //--------------------------------------------------------------------------------------------------------------//
+
         }
         [TestMethod]
+        //Test method to verify CalculateTotalCalories throws an ArgumentException if any ingredient has negative calories
         public void CalculateTotalCalories_NegativeCalories_ThrowsArgumentException()
         {
-            // Arrange
+        
             Recipe recipe = new Recipe();
             recipe.Ingredients.Add(new Ingredient { Calories = -50 });
 
-            // Act and Assert
+      
             Assert.ThrowsException<ArgumentException>(() => recipe.CalculateTotalCalories());
+        //--------------------------------------------------------------------------------------------------------------//
+
         }
     }
 }
