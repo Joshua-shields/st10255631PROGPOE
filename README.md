@@ -1,3 +1,11 @@
+The purpose of the project
+This programming project develops a command-line application for creating, storing, and managing recipes using object-oriented principles. 
+In part 1, users can enter a single recipe's ingredients, quantities, units, and steps, scaling quantities as needed. 
+In part 2 the application then extends to support multiple recipes with names, displaying them alphabetically. 
+Users can track nutritional information like calories and food groups per ingredient. 
+The application calculates total calories, notifying users if exceeding 300. 
+Key requirements include using classes, generic collections, delegates for calorie notification, unit testing and Git version control with a GitHub repository. 
+
 Instructions to Compile and Run the Application
 1. Clone the Repository
 Copy codegit clone https://github.com/Joshua-shields/st10255631_PROG_POE.git
@@ -18,7 +26,17 @@ The unzipped file
 Build the solution to compile the code to do this in Visual Studio, you need to go to Build > Build Solution 
 
 4. Run the Application
-Run the application by pressing the green start button 
+Run the application by pressing the green start button
+
+Feedback 
+I fixed my README so that it had more detail. I also added better error handling for part 2 of the code. 
+The README now provides comprehensive explanations and clear guidance, making it easier for users to understand the project's purpose, structure, and functionality. 
+The improved error handling ensures the application can gracefully handle and recover from a wider range of potential errors, leading to more robust and reliable execution.
+Made the format better as well as added colored text display. 
+I refined the overall format and presentation, adhering to best practices for improved readability and maintainability. 
+The colored text displays makes it look visually appealing but i also not used to much.
+With these changes, the project now has a more user-friendly and informative README, better error handling capabilities and avisually enhanced codebase. 
+These improvements contribute to a better overall experience for users and developers, this helps with easier comprehension.
 
 Major Changes Made
 
